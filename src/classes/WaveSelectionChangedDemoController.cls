@@ -1,5 +1,5 @@
 public with sharing class WaveSelectionChangedDemoController {
-	
+    
     @AuraEnabled
     public static list<Opportunity> getOpportunities(String year,String month){
         integer year_int = integer.valueOf(year);
