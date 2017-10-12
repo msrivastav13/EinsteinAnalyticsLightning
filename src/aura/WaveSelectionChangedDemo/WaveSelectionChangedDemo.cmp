@@ -1,0 +1,48 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" controller="WaveSelectionChangedDemoController">
+   <aura:attribute type="String" name="year"/>
+   <aura:attribute type="String" name="month"/>
+   <aura:attribute type="Opportunity[]" name="opportunities" />
+   <aura:handler event="wave:selectionChanged" action="{!c.handleSelectionChanged}"/>
+   <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+      <thead>
+         <tr class="slds-text-title_caps">
+            <th scope="col">
+               <div class="slds-truncate" title="Opportunity Name">Opportunity Name</div>
+            </th>
+            <th scope="col">
+               <div class="slds-truncate" title="Account Name">Account Name</div>
+            </th>
+            <th scope="col">
+               <div class="slds-truncate" title="Close Date">Close Date</div>
+            </th>
+            <th scope="col">
+               <div class="slds-truncate" title="Stage">Stage</div>
+            </th>
+            <th scope="col">
+               <div class="slds-truncate" title="Amount">Amount</div>
+            </th>
+         </tr>
+      </thead>
+      <tbody>
+         <aura:iteration items="{!v.opportunities}" var="opp">
+            <tr>
+               <th scope="row" data-label="Opportunity Name">
+                  <div class="slds-truncate" title="Cloudhub + Anypoint Connectors"><a href="javascript:void(0);">{!opp.Name}</a></div>
+               </th>
+               <td data-label="Account Name">
+                  <div class="slds-truncate" title="{!opp.Account.Name}">{!opp.Account.Name}</div>
+               </td>
+               <td data-label="Close Date">
+                  <div class="slds-truncate" title="{!opp.CloseDate}">{!opp.CloseDate}</div>
+               </td>
+               <td data-label="Prospecting">
+                  <div class="slds-truncate" title="{!opp.StageName}">{!opp.StageName}</div>
+               </td>
+               <td data-label="Amount">
+                  <div class="slds-truncate" title="{!opp.Amount}">{!opp.Amount}</div>
+               </td>
+            </tr>
+         </aura:iteration>
+      </tbody>
+   </table>
+</aura:component>

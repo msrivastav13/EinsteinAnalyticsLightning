@@ -1,0 +1,3 @@
+<design:component >
+	  <design:attribute name="dashboardId" label="Dashboard ID" description="ID of the Analytics Dashboard to send the filter to"/>
+</design:component>
